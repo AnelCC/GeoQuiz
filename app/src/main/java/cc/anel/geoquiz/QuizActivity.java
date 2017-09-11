@@ -23,6 +23,8 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        Log.d(TAG, "onCreate: ");
+
         btn_true        =   (Button) findViewById(R.id.btn_true);
         btn_false       =   (Button) findViewById(R.id.btn_false);
         btn_previous    =   (Button) findViewById(R.id.btn_previous);
@@ -100,6 +102,27 @@ public class QuizActivity extends AppCompatActivity {
     };
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+    
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: ");
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
+    }
 }
