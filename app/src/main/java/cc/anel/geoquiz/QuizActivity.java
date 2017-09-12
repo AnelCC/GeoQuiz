@@ -33,7 +33,7 @@ public class QuizActivity extends AppCompatActivity {
         txt_question    =   (TextView) findViewById(R.id.txt_main_question);
 
         if (savedInstanceState!=null){
-            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX,0);
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX);
         }
         updateQuestion();
 
@@ -60,8 +60,10 @@ public class QuizActivity extends AppCompatActivity {
         btn_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mCurrentIndex<0){
+                Log.d(TAG, "onClickPrevious: "+mCurrentIndex);
+                if (mCurrentIndex!=0){
                     mCurrentIndex = (mCurrentIndex-1) % mQuestionsBank.length;
+                    Log.d(TAG, "onClickPrevious: mCurrentIndex "+mCurrentIndex);
                     updateQuestion();
                 }
             }
@@ -70,7 +72,9 @@ public class QuizActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClickNext: "+mCurrentIndex);
                 mCurrentIndex = (mCurrentIndex+1) % mQuestionsBank.length;
+                Log.d(TAG, "onClickNext: mCurrentIndex "+mCurrentIndex);
                 updateQuestion();
             }
         });
